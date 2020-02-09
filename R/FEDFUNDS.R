@@ -63,11 +63,12 @@
 #'  \item\strong{Seasonal Adjustment:} {Not Seasonally Adjusted}
 #'  \item\strong{Frequency:} {Monthly}
 #'  \item\strong{Units:} {Percent}
-#'  \item\strong{Date Range:} {1954-07-01 to 2017-12-01}
-#'  \item\strong{Last Updated} {2018-01-03 8:51 AM CST}
+#'  \item\strong{Date Range:} {1954-07-01 to 2020-01-01}
+#'  \item\strong{Last Updated} {2020-02-03 3:27 PM CST}
 #' }
 #'
-#' @source Board of Governors of the Federal Reserve System (US) \url{https://fred.stlouisfed.org/data/FEDFUNDS.txt}
+#' @source Board of Governors of the Federal Reserve System (US) 
+#' \url{https://fred.stlouisfed.org/data/FEDFUNDS.txt}
 #'
 #' @examples
 #' data(FEDFUNDS)

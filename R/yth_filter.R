@@ -47,7 +47,6 @@
 #'
 #' @seealso \code{\link{yth_glm}}
 #'
-#' @importFrom stats lag
 #' @importFrom xts as.xts
 #' @import zoo
 #'
@@ -86,63 +85,71 @@
 #' random.cor <- t(data.frame(lapply(random, cor, random[,1], use = "complete.obs")))
 #' 
 #' my_table_2 <- round(data.frame(cbind(cycle.sd, GDP.cor, random.sd, random.cor)), 2)
-#'
+#' names(my_table_2) <- names(Hamilton_table_2)[1:4]
+#' 
 #' knitr::kable(my_table_2, align = 'l')
 #' @export
 yth_filter <- function(x, h = 8, p = 4, output = c("x", "trend", "cycle", "random"), ...) {
-        
-     # Test output paramter and halt function if it doesn't match
-           output_args <- c("x","trend", "cycle", "random")
-           
-     if(length(output) != sum(grepl(paste(output_args, collapse = "|"), output))) {
   
-       stop(paste0("Incorrect argument '", 
-                  output[!grepl(paste(output_args, collapse = "|"), output)], 
-                  "' present in 'output' argument. Must be a character vector 
+  # Test output paramter and halt function if it doesn't match
+  output_args <- c("x","trend", "cycle", "random")
+  
+  if(length(output) != sum(grepl(paste(output_args, collapse = "|"), output))) {
+    
+    stop(paste0("Incorrect argument '", 
+                output[!grepl(paste(output_args, collapse = "|"), output)], 
+                "' present in 'output' argument. Must be a character vector 
                    containing `x`, 'trend', 'cycle', or 'random'."))
-         
-     } else {     
-               # After test passes, run the yth_function
-               neverHP <- yth_glm(x = x , h = h, p = p, ...) 
+    
+  } else if( is.null(colnames(x)) ) {
+    
+    warning("Your xts object doesn't have a dimnames attribute, aka names(your_xts) is NULL, which would've produced an error.
+    Thus it has been given the name 'y' within the scope, and for the output, of this function.")
+    
+    colnames(x) <- ifelse( is.null(colnames(x)), "y", colnames(x) )  
+    
+  }    
+  # After test passes, run the yth_function
+  neverHP <- yth_glm(x = x , h = h, p = p, ...) 
   
-     }
-           
-      # Begin extracting and transforming model series. 
-      # If univariate output is specified, return individual series.
-                 trend <- xts::as.xts(unname(neverHP$fitted.values),
-                             order.by = get(paste0("as.",class(index(x))))(names(neverHP$fitted.values)))
-                 names(trend) <- paste0(names(x),".trend")
-                 
-        if (any(length(output) == 1 & output == "trend")) {return(trend)}
-        
-                 cycle <- xts::as.xts(unname(neverHP$residuals),
-                             order.by = get(paste0("as.",class(index(x))))(names(neverHP$residuals)))
-                 names(cycle) <- paste0(names(x),".cycle")
-                 
-        if (any(length(output) == 1 & output == "cycle")) {return(cycle)}
-        
-                random <- x-lag(x, k = h, na.pad = TRUE)
-                names(random) <- paste0(names(x),".random")
-                
-        if (any(length(output) == 1 & output == "random")) {return(random)}
-        
-                
-       # If multivariate output is specified, merge/extract specified series.
-                   all <- merge(x, trend, cycle, random)
-                   names(all) <- c(names(x), paste0(names(x),".", c("trend", "cycle", "random")))
-        
-         if (any(output == "x")) {
- 
-                 index <- grep(paste(output, collapse = "|"), names(all))
-                 
-                 return(all[,c(1, index)])
-          
-         } else {
-      
-                 index <- grep(paste(output, collapse = "|"), names(all))
-                 
-                 return(all[,c(index)])   
-         
-        }         
- 
+  # Begin extracting and transforming model series. 
+  # If univariate output is specified, return individual series.
+  trend <- xts::as.xts(unname(neverHP$fitted.values),
+                       order.by = get(paste0("as.",class(index(x))))(names(neverHP$fitted.values)))
+  names(trend) <- paste0(names(x),".trend")
+  
+  if (any(length(output) == 1 & output == "trend")) {return(trend)}
+  
+  cycle <- xts::as.xts(unname(neverHP$residuals),
+                       order.by = get(paste0("as.",class(index(x))))(names(neverHP$residuals)))
+  names(cycle) <- paste0(names(x),".cycle")
+  
+  if (any(length(output) == 1 & output == "cycle")) {return(cycle)}
+  
+  random <- x-lag(x, k = h, na.pad = TRUE)
+  names(random) <- paste0(names(x),".random")
+  
+  if (any(length(output) == 1 & output == "random")) {return(random)}
+  
+  
+  # If multivariate output is specified, merge/extract specified series.
+  all <- merge(x, trend, cycle, random)
+  names(all) <- c(names(x), paste0(names(x),".", 
+                                   c("trend", "cycle", "random"))
+  )
+  
+  if (any(output == "x")) {
+    
+    index <- grep(paste(output, collapse = "|"), names(all))
+    
+    return(all[,c(1, index)])
+    
+  } else {
+    
+    index <- grep(paste(output, collapse = "|"), names(all))
+    
+    return(all[,c(index)])   
+    
+  }         
+  
 }

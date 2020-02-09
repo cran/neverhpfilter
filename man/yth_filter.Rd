@@ -4,8 +4,8 @@
 \alias{yth_filter}
 \title{Filtered xts object}
 \usage{
-yth_filter(x, h = 8, p = 4, output = c("x", "trend", "cycle", "random"),
-  ...)
+yth_filter(x, h = 8, p = 4, output = c("x", "trend", "cycle",
+  "random"), ...)
 }
 \arguments{
 \item{x}{A univariate \code{\link{xts}} object of any \code{\link{zoo}} index class,
@@ -84,6 +84,7 @@ random.sd <- t(data.frame(lapply(random, sd, na.rm = TRUE)))
 random.cor <- t(data.frame(lapply(random, cor, random[,1], use = "complete.obs")))
 
 my_table_2 <- round(data.frame(cbind(cycle.sd, GDP.cor, random.sd, random.cor)), 2)
+names(my_table_2) <- names(Hamilton_table_2)[1:4]
 
 knitr::kable(my_table_2, align = 'l')
 }
