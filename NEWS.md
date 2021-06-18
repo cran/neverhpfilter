@@ -3,6 +3,22 @@ title: "NEWS"
 output: github_document
 ---
 
+# neverhpfilter 0.4-0
+
+Submitted 3.3 to CRAN and received a NOTE concerning documentation files for the `GDPCI` data set, referencing the Guide to the National Income and Product Accounts of the United States (NIPA). Updated source from http://www.bea.gov/national/pdf/nipaguid.pdf to https://www.bea.gov/resources/methodologies/nipa-handbook
+
+# neverhpfilter 0.3-3
+
+The `knitr` maintainer decided to remove `rmarkdown` as a dependency, so the vignette build now fails. It must be added, or else CRAN will remove the package by `2021-05-14`.
+
+Updated all data sets.
+
+`SP500` data includes more variables from Robert Schiller's data set for U.S. Stock Markets 1871-2021.
+
+# neverhpfilter 0.3-2
+
+Update data for `FEDFUNDS`, `GS10`, `PAYEMS`, `UNRATENSA`, and `SP500`.
+
 # neverhpfilter 0.3-1
 
 Content edits and cleanup of vignettes. 

@@ -4,21 +4,30 @@
 \name{SP500}
 \alias{SP500}
 \title{U.S. Stock Markets and CAPE Ratio}
-\format{An \code{\link{xts}} object containing observations of U.S. Stock Markets 1871-Present and CAPE Ratio.
+\format{
+An \code{\link{xts}} object containing observations of U.S. Stock Markets 1871-Present and CAPE Ratio.
  \itemize{
  \item\strong{Frequency:} {Monthly}
- \item\strong{Date Range:} {1871-01 to 2019-12}
- \item\strong{Data updated:} {2020-02-08 10:17 AM CST}
- \item\strong{SP500:} {Nominal prices of the S&P 500 composite index}
+ \item\strong{Date Range:} {1871-01 to 2020-03}
+ \item\strong{Data updated:} {2021-05-05 05:08 PM CST}
+ \item\strong{SP500:} {Nominal prices of the S&P composite index, April 2021 observation is 04/05 close}
  \item\strong{Dividends:} {Nominal dividends}
- \item\strong{Earnings:} {Nominal Earnings}
+ \item\strong{Earnings:} {Nominal Earnings, S&P 500 estimated}
  \item\strong{CPI:} {Schiller's Consumer Price Index data Schiller used for transformation to Real prices}
- \item\strong{GS10:} {Schiller's Long term interest rate 10-Year Treasury Constant Maturity Rate}
+ \item\strong{GS10:} {Schiller's Long term interest rate 10-Year Treasury Constant Maturity Rate, April 2021 observation is 04/05 close}
  \item\strong{Real_SP500:} {Real prices of the S&P 500 composite index}
  \item\strong{Real_Dividends:} {Real Dividends}
+ \item\strong{Real_SP500_TR:} {Real Total Return Price of the S&P 500 composite index}
  \item\strong{Real_Earnings:} {Real Earnings}
- \item\strong{CAPE:} {Cyclically Adjusted Price Earnings Ratio. P/E-10 or CAPE.}
-}}
+ \item\strong{Real_Earnings_TR:} {Real Total Return Scaled Earnings}
+ \item\strong{CAPE:} {Cyclically Adjusted Price Earnings Ratio. P/E10 or CAPE.}
+ \item\strong{CAPE_TR:} {Cyclically Adjusted Total Return Price Earnings Ratio. P/E10_TR or CAPE_TR.}
+ \item\strong{CAPE_Yield:} {Excess Cape Yield.}
+ \item\strong{Bond_TR:} {Total Bond Returns.}
+ \item\strong{Real_Bond_TR:} {Real Total Bond Returns.}
+  
+}
+}
 \source{
 Schiller, Robert J. Irrational Exuberance, Princeton University Press 2000, 
  Broadway Books 2001, 2nd ed. 2005, 3rd ed. 2015.  
@@ -30,7 +39,7 @@ Schiller, Robert J. Irrational Exuberance, Princeton University Press 2000,
 data(SP500)
 }
 \description{
-\code{SP500} Robert Schiller's data set for U.S. Stock Markets 1871-2019 and CAPE Ratio.
+\code{SP500} Robert Schiller's data set for U.S. Stock Markets 1871-2021 and CAPE Ratio.
 }
 \section{Notes from Schiller}{
 
@@ -44,8 +53,7 @@ Monthly dividend and earnings data are computed from the S&P four-quarter totals
 for the quarter since 1926, with linear interpolation to monthly figures. Dividend 
 and earnings data before 1926 are from Cowles and associates (Common Stock Indexes,
 2nd ed., Bloomington, Ind.: Principia Press, 1939), interpolated from annual 
-data. Stock price data are monthly averages of daily closing prices through 
-August of 2019. The CPI-U (Consumer Price Index-All Urban Consumers) published by 
+data. Stock price data are monthly averages of daily closing prices. The CPI-U (Consumer Price Index-All Urban Consumers) published by 
 the U.S. Bureau of Labor Statistics begins in 1913; for years before 1913, 
 I spliced to the CPI Warren and Pearson's price index, by multiplying it by 
 the ratio of the indexes in January 1913. December 1999 and January 2000 values 
