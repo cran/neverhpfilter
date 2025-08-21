@@ -3,6 +3,40 @@ title: "NEWS"
 output: github_document
 ---
 
+# neverhpfilter 0.5-0
+
+Fixed the following issues containing features & bugs:
+
+[yth_filter() fails with p =1 #10](https://github.com/JustinMShea/neverhpfilter/issues/10)
+
+[link to shiller data 404 in data-raw/data-script.R line 85 #9](https://github.com/JustinMShea/neverhpfilter/issues/9)
+
+[Updates to "Getting Started" vignette #8](https://github.com/JustinMShea/neverhpfilter/issues/8)
+
+[Add full Code Coverage #7](https://github.com/JustinMShea/neverhpfilter/issues/7)
+
+[Update CI tools #5](https://github.com/JustinMShea/neverhpfilter/issues/5)
+
+Updated email address in `DESCRIPTION` to jshea01@uic.edu
+
+Refreshed all data series to current, recording updates in documentation files.
+
+# neverhpfilter 0.4-3
+
+Fixed all Notes that resulted in [removal from CRAN](https://cran-archive.r-project.org/web/checks/2025/2025-06-13_check_results_neverhpfilter.html)
+
+# neverhpfilter 0.4-2
+
+Switched to new dependency free, `simplermarkdown` package!
+
+Updated all datasets on Dec 12th, 2021 using `data-raw/data-script.R`
+
+# neverhpfilter 0.4-1
+
+Experimenting with `minidown` for vignettes.
+
+Updated all datasets on July 19th, 2021
+
 # neverhpfilter 0.4-0
 
 Submitted 3.3 to CRAN and received a NOTE concerning documentation files for the `GDPCI` data set, referencing the Guide to the National Income and Product Accounts of the United States (NIPA). Updated source from http://www.bea.gov/national/pdf/nipaguid.pdf to https://www.bea.gov/resources/methodologies/nipa-handbook
@@ -11,7 +45,7 @@ Submitted 3.3 to CRAN and received a NOTE concerning documentation files for the
 
 The `knitr` maintainer decided to remove `rmarkdown` as a dependency, so the vignette build now fails. It must be added, or else CRAN will remove the package by `2021-05-14`.
 
-Updated all data sets.
+Updated all data sets
 
 `SP500` data includes more variables from Robert Schiller's data set for U.S. Stock Markets 1871-2021.
 

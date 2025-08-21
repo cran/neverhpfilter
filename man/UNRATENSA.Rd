@@ -5,18 +5,18 @@
 \alias{UNRATENSA}
 \title{Civilian Unemployment Rate}
 \format{
-An \code{\link{xts}} object of the Civilian Unemployment Rate.
- \itemize{
- \item\strong{Release:} {Employment Situation}
- \item\strong{Seasonal Adjustment:} {Not Seasonally Adjusted}
- \item\strong{Frequency:} {Monthly}
- \item\strong{Units:} {Percent}
- \item\strong{Date Range:} {1948-01-01 to 2021-03-01}
- \item\strong{Last Updated} {2021-04-02 7:44 AM CDT}
+An \code{\link[xts]{xts}} object containing monthly observations of the
+Civilian Unemployment Rate.
+\describe{
+  \item{**Release:**}{Employment Situation}
+  \item{**Seasonal Adjustment:**}{Not Seasonally Adjusted}
+  \item{**Frequency:**}{Monthly}
+  \item{**Units:**}{Percent}
+  \item{**Date Range:**}{1948-01-01 to 2025-07-01}
 }
 }
 \source{
-U.S. Bureau of Labor Statistics \url{https://fred.stlouisfed.org/data/UNRATENSA.txt}
+U.S. Bureau of Labor Statistics \url{https://fred.stlouisfed.org/data/UNRATENSA}
 }
 \usage{
 data(UNRATENSA)
@@ -28,14 +28,14 @@ data(UNRATENSA)
 
 The unemployment rate represents the number of unemployed as a
 percentage of the labor force. Labor force data are restricted to
-people 16 years of age and older, who currently reside in 1 of the 50
+people 16 years of age and older, who currently reside in one of the 50
 states or the District of Columbia, who do not reside in institutions
 (e.g., penal and mental facilities, homes for the aged), and who are
 not on active duty in the Armed Forces.
 
 This rate is also defined as the U-3 measure of labor underutilization.
 
-The series comes from the 'Current Population Survey (Household Survey)'
+The series comes from the 'Current Population Survey (Household Survey)'.
 
 The source code is: LNU04000000
 }
@@ -43,6 +43,6 @@ The source code is: LNU04000000
 \examples{
 data(UNRATENSA)
 tail(UNRATENSA)
-plot(UNRATENSA, grid.col = "white", col="green")
+plot(UNRATENSA, grid.col = "white", col = "green")
 }
 \keyword{datasets}

@@ -16,24 +16,23 @@
 #'
 #' @usage data(GDPC1)
 #'
-#' @format An \code{\link{xts}} object of Real Gross Domestic Product.
+#' @format An \code{\link[xts]{xts}} object of Real Gross Domestic Product.
 #'  \itemize{
-#'  \item\strong{Release:} {Gross Domestic Product}
-#'  \item\strong{Seasonal Adjustment:} {Seasonally Adjusted Annual Rate} 
-#'  \item\strong{Frequency:} {Quarterly}
-#'  \item\strong{Units:} {Billions of Chained 2012 Dollars}
-#'  \item\strong{Date Range:} {1947-01-01 to 2021-01-01}
-#'  \item\strong{Last Updated} {2021-04-29 7:52 AM CDT}
+#'  \item\strong{Release:} Gross Domestic Product
+#'  \item\strong{Seasonal Adjustment:} Seasonally Adjusted Annual Rate
+#'  \item\strong{Frequency:} Quarterly
+#'  \item\strong{Units:} Billions of Chained 2017 Dollars
+#'  \item\strong{Date Range:} 1947-01-01 to 2025-04-01
 #' }
 #'
-#' @source U.S. Bureau of Economic Analysis \url{https://fred.stlouisfed.org/data/GDPC1.txt}
+#' @source U.S. Bureau of Economic Analysis \url{https://fred.stlouisfed.org/data/GDPC1}
 #'
 #' @examples
 #' data(GDPC1)
 #' log_RGDP <- 100*log(GDPC1)
-#' 
+#'
 #' gdp_cycle <- yth_filter(log_RGDP, h = 8, p = 4, output = c("cycle", "random"), family = gaussian)
-#' 
+#'
 #' main <- "Log of Real GDP cycle and random walk"
 #' plot(gdp_cycle, grid.col = "white", legend.loc = "topright", main = main)
 "GDPC1"

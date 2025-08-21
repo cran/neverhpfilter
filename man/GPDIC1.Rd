@@ -5,18 +5,18 @@
 \alias{GPDIC1}
 \title{Real Gross Private Domestic Investment}
 \format{
-An \code{\link{xts}} object of Real Exports of Goods and Services.
- \itemize{
- \item\strong{Release:} {Gross Domestic Product}
- \item\strong{Seasonal Adjustment:} {Seasonally Adjusted Annual Rate} 
- \item\strong{Frequency:} {Quarterly}
- \item\strong{Units:} {Billions of Chained 2012 Dollars}
- \item\strong{Date Range:} {1947-01-01 to 2021-01-01}
- \item\strong{Last Updated} {2021-04-29 7:52 AM CDT}
+An \code{\link[xts]{xts}} object containing quarterly observations of
+Real Gross Private Domestic Investment.
+\describe{
+  \item{**Release:**}{Gross Domestic Product}
+  \item{**Seasonal Adjustment:**}{Seasonally Adjusted Annual Rate}
+  \item{**Frequency:**}{Quarterly}
+  \item{**Units:**}{Billions of Chained 2017 Dollars}
+  \item{**Date Range:**}{1947-01-01 to 2025-04-01}
 }
 }
 \source{
-U.S. Bureau of Economic Analysis \url{https://fred.stlouisfed.org/data/GPDIC1.txt}
+U.S. Bureau of Economic Analysis \url{https://fred.stlouisfed.org/data/GPDIC1}
 }
 \usage{
 data(GPDIC1)
@@ -28,15 +28,13 @@ data(GPDIC1)
 
 BEA Account Code: A006RX
 
-A Guide to the National  Income and Product Accounts of the United States (NIPA) 
+A Guide to the National Income and Product Accounts of the United States (NIPA)
 - (http://www.bea.gov/national/pdf/nipaguid.pdf)
 }
 
 \examples{
 data(GPDIC1)
-
 tail(GPDIC1)
-
-plot(GPDIC1, grid.col = "white", col="blue")
+plot(GPDIC1, grid.col = "white", col = "blue")
 }
 \keyword{datasets}

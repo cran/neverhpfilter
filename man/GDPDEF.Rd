@@ -5,18 +5,18 @@
 \alias{GDPDEF}
 \title{Gross Domestic Product: Implicit Price Deflator}
 \format{
-An \code{\link{xts}} object containing observations of Real Exports of Goods and Services.
- \itemize{
- \item\strong{Release:} {Gross Domestic Product}
- \item\strong{Seasonal Adjustment:} {Seasonally Adjusted Annual Rate} 
- \item\strong{Frequency:} {Quarterly}
- \item\strong{Units:} {Index 2012 = 100}
- \item\strong{Date Range:} {1947-01-01 to 2021-01-01}
- \item\strong{Last Updated} {2021-04-29 7:52 AM CDT}
+An \code{\link[xts]{xts}} object containing quarterly observations of the
+Gross Domestic Product: Implicit Price Deflator.
+\describe{
+  \item{**Release:**}{Gross Domestic Product}
+  \item{**Seasonal Adjustment:**}{Seasonally Adjusted Annual Rate}
+  \item{**Frequency:**}{Quarterly}
+  \item{**Units:**}{Index 2017 = 100}
+  \item{**Date Range:**}{1947-01-01 to 2025-04-01}
 }
 }
 \source{
-U.S. Bureau of Economic Analysis \url{https://fred.stlouisfed.org/data/GDPDEF.txt}
+U.S. Bureau of Economic Analysis \url{https://fred.stlouisfed.org/data/GDPDEF}
 }
 \usage{
 data(GDPDEF)
@@ -28,13 +28,15 @@ data(GDPDEF)
 
 BEA Account Code: A191RD
 
-The number of decimal places reported varies over time. A Guide to the National 
-Income and Product Accounts of the United States (NIPA) - (http://www.bea.gov/national/pdf/nipaguid.pdf)
+The number of decimal places reported varies over time.
+A Guide to the National Income and Product Accounts of the United States (NIPA)
+- (http://www.bea.gov/national/pdf/nipaguid.pdf)
 }
 
 \examples{
 data(GDPDEF)
+head(GDPDEF)
 tail(GDPDEF)
-plot(GDPDEF, grid.col = "white", col="blue")
+plot(GDPDEF, col = "blue")
 }
 \keyword{datasets}
